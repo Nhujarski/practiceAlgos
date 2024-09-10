@@ -1,0 +1,23 @@
+:root {
+    --color-chat: rgb(242, 243, 247);
+    --color-chat-bubble: rgb(230, 233, 239);
+    --color-viewer-chat-bubble: rgb(76, 148, 254);
+  }
+  
+  body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    width: 100%;
+    height: 100%;
+    background: #999;
+  }
+  
+  .chat {
+    /* let's leave these 5 properties alone */
+    border: 1px solid black;
+    width: calc(100% - 64px);
+    height: 400px;
+    background: var(--color-chat);
+    margin: auto;
+  }
+  

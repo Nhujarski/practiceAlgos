@@ -1,0 +1,89 @@
+:root {
+    --color-chat: rgb(242, 243, 247);
+    --color-chat-bubble: rgb(230, 233, 239);
+    --color-viewer-chat-bubble: rgb(76, 148, 254);
+  }
+  body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    width: 100%;
+    height: 100%;
+    background: #999;
+  }
+  
+  .chat {
+    /* let's leave these 5 properties alone */
+    border: 1px solid black;
+    width: calc(100% - 64px);
+    height: 400px;
+    background: var(--color-chat);
+    margin: auto;
+  
+    /* this allows us to easily left or right justify messages.
+     * This would also make it easy for the messages to stay at the bottom of the container
+     * if there aren't enough messages to scroll
+     */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .messages {
+    /* fill the remaining vertical space, even if the content isn't big enough */
+    flex-grow: 1;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* by default, left-align items and don't make them full width */
+    overflow-y: scroll;
+  
+    & .viewer {
+      background: var(--color-viewer-chat-bubble);
+      align-self: flex-end; /* right-align */
+      color: white;
+    }  
+  
+    > div {
+      background: var(--color-chat-bubble);
+      padding: 10px;
+      margin: 6px;
+      border-radius: 8px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  .name {
+    font-weight: 600;
+  
+    &::after {
+      content: ":"; /* insert a : after the sender's name */
+    }
+  }
+  
+  .send {
+    height: 32px;
+    position: relative;
+    display: flex;
+  
+    & input {
+      flex-grow: 1; /* grow to take the remaining space */
+      height: 100%;
+      border: none;
+      padding: 0 8px;
+      background: none;
+      font-size: 18px;
+    }
+  
+    & button {
+      height: 100%;
+      font-size: 18px;
+      padding: 8 px;
+      text-transform: uppercase;
+      border: 2px solid rgba(0, 0, 0, 0.2);
+      background: none;
+      transition: background 200ms; /* animate this attribute when it changes */
+    
+      &:hover {
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
